@@ -316,14 +316,15 @@ body.light-mode .card-subtitle {
   color: #666666;
 }
 
-.card-date {
+.card-date a {
   font-size: 14px;
   color: #707070;
   margin-bottom: 20px;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-body.light-mode .card-date {
+body.light-mode .card-date a{
   color: #888888;
 }
 
@@ -456,7 +457,7 @@ body.light-mode .download-btn:hover {
 
 footer {
   padding: 40px 80px;
-  margin-top: 60px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
@@ -616,7 +617,6 @@ body.light-mode .social-icon:hover {
   .nav-links {
     gap: 1rem;
     margin-left: 65px;
-
   }
 
   .nav-links li {
@@ -671,7 +671,7 @@ body.light-mode .social-icon:hover {
     padding-left: 15px;
   }
 
-  .content{
+  .content {
     width: 413px;
     padding-left: 12px;
   }
