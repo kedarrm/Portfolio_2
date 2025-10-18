@@ -5,19 +5,27 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Dark Mode (Default) */
 body {
   background: #000;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   color: white;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode */
+body.light-mode {
+  background: #ffffff;
+  color: #000000;
 }
 
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  padding-top: 10px;
+  padding: 10px 20px;
+  position: relative;
 }
 
 .name h3 {
@@ -30,6 +38,14 @@ body {
 
 .name h3:hover {
   color: #a09f9f;
+}
+
+body.light-mode .name h3 {
+  color: #333333;
+}
+
+body.light-mode .name h3:hover {
+  color: #000000;
 }
 
 .nav-links {
@@ -46,6 +62,10 @@ li a {
   gap: 6px;
 }
 
+body.light-mode li a {
+  color: #333333;
+}
+
 .nav-links li {
   cursor: pointer;
   font-weight: 600;
@@ -58,6 +78,43 @@ li a {
   color: #a09f9f;
 }
 
+body.light-mode .nav-links a:hover {
+  color: #000000;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  right: 240px;
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #2a2a2a;
+  transform: rotate(180deg);
+}
+
+body.light-mode .theme-toggle {
+  background-color: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  color: #000000;
+}
+
+body.light-mode .theme-toggle:hover {
+  background-color: #e0e0e0;
+}
+
 /* PROFILE CONTAINER */
 section {
   display: flex;
@@ -66,7 +123,6 @@ section {
   padding-top: 55px;
 }
 
-/* Style the image */
 .image-section {
   display: flex;
   flex-direction: column;
@@ -80,6 +136,11 @@ section {
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid rgb(188, 186, 186);
+  transition: border-color 0.3s ease;
+}
+
+body.light-mode .image img {
+  border: 5px solid #d0d0d0;
 }
 
 .image p {
@@ -88,6 +149,11 @@ section {
   font-size: 23px;
   color: #c6c5c5;
   padding-top: 10px;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .image p {
+  color: #333333;
 }
 
 .work {
@@ -103,6 +169,13 @@ section {
   color: white;
   font-family: Arial, sans-serif;
   font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+body.light-mode .work {
+  background-color: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  color: #333333;
 }
 
 .work span {
@@ -117,12 +190,18 @@ section {
   color: #c6c5c5;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .work a {
+  color: #333333;
 }
 
 .contact {
   display: flex;
   gap: 45px;
   margin-top: 18px;
+  justify-content: center;
 }
 
 .contact p,
@@ -138,8 +217,17 @@ section {
   transition: color 0.3s ease;
 }
 
+body.light-mode .contact p,
+body.light-mode .contact a {
+  color: #333333;
+}
+
 .contact a:hover {
   color: #949292;
+}
+
+body.light-mode .contact a:hover {
+  color: #000000;
 }
 
 .contact i {
@@ -161,6 +249,11 @@ section {
   font-size: 26px;
   font-weight: 600;
   color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .section-title {
+  color: #000000;
 }
 
 .content {
@@ -173,17 +266,31 @@ section {
   font-size: 13px;
   color: #b0b0b0;
   line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .content-text {
+  color: #555555;
 }
 
 .card {
   background-color: #1a1a1a;
   border-radius: 16px;
   padding: 32px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   background-color: #222222;
+}
+
+body.light-mode .card {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+body.light-mode .card:hover {
+  background-color: #ebebeb;
 }
 
 .card-title {
@@ -191,18 +298,33 @@ section {
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .card-title {
+  color: #000000;
 }
 
 .card-subtitle {
   font-size: 16px;
   color: #909090;
   margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .card-subtitle {
+  color: #666666;
 }
 
 .card-date {
   font-size: 14px;
   color: #707070;
   margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .card-date {
+  color: #888888;
 }
 
 .card-list {
@@ -217,6 +339,11 @@ section {
   color: #b0b0b0;
   padding-left: 20px;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .card-list li {
+  color: #555555;
 }
 
 .card-list li::before {
@@ -224,6 +351,10 @@ section {
   position: absolute;
   left: 0;
   color: #707070;
+}
+
+body.light-mode .card-list li::before {
+  color: #888888;
 }
 
 .skills-group {
@@ -239,6 +370,11 @@ section {
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .skills-category {
+  color: #000000;
 }
 
 .skills-tags {
@@ -262,6 +398,17 @@ section {
   border-color: #3a3a3a;
 }
 
+body.light-mode .skill-tag {
+  background-color: #f5f5f5;
+  color: #333333;
+  border: 1px solid #d0d0d0;
+}
+
+body.light-mode .skill-tag:hover {
+  background-color: #e0e0e0;
+  border-color: #b0b0b0;
+}
+
 .download-btn-container {
   margin-top: 20px;
   display: flex;
@@ -271,7 +418,7 @@ section {
 .download-btn {
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 14px 28px;
+  padding: 14px 32px;
   border-radius: 30px;
   border: 1px solid #2a2a2a;
   font-size: 15px;
@@ -281,6 +428,22 @@ section {
   gap: 14px;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.download-btn:hover {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+}
+
+body.light-mode .download-btn {
+  background-color: #f5f5f5;
+  color: #333333;
+  border: 1px solid #d0d0d0;
+}
+
+body.light-mode .download-btn:hover {
+  background-color: #e0e0e0;
+  border-color: #b0b0b0;
 }
 
 .download-icon {
@@ -293,7 +456,7 @@ section {
 
 footer {
   padding: 40px 80px;
-  margin-top: 10px;
+  margin-top: 60px;
   display: flex;
   justify-content: center;
 }
@@ -307,11 +470,21 @@ footer {
   align-items: center;
   border-top: 1px solid #1a1a1a;
   padding-top: 40px;
+  transition: border-color 0.3s ease;
+}
+
+body.light-mode .footer-content {
+  border-top: 1px solid #d0d0d0;
 }
 
 .footer-text {
   font-size: 14px;
   color: #909090;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .footer-text {
+  color: #666666;
 }
 
 .footer-socials {
@@ -333,9 +506,15 @@ footer {
   color: #ffffff;
 }
 
+body.light-mode .social-icon {
+  color: #666666;
+}
 
+body.light-mode .social-icon:hover {
+  color: #000000;
+}
 
-/* Tablets and smaller laptops (max-width: 968px) */
+/* Responsive Media Queries */
 @media (max-width: 968px) {
   section {
     grid-template-columns: 1fr;
@@ -362,7 +541,6 @@ footer {
   }
 }
 
-/* Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .name h3 {
     font-size: 1.3rem;
@@ -370,6 +548,11 @@ footer {
 
   .nav-links {
     gap: 1.5rem;
+  }
+
+  .theme-toggle {
+    position: static;
+    margin-left: auto;
   }
 
   .image img {
@@ -381,7 +564,6 @@ footer {
     font-size: 20px;
   }
 
-  /* Keep contact in single line, reduce gap */
   .contact {
     gap: 20px;
     flex-wrap: nowrap;
@@ -419,23 +601,33 @@ footer {
   }
 }
 
-/* Mobile devices (max-width: 480px) */
 @media (max-width: 480px) {
   .nav {
     padding: 10px 10px;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: 5px;
   }
 
   .name h3 {
     font-size: 1.1rem;
+    margin-left: 10px;
   }
 
   .nav-links {
     gap: 1rem;
+    margin-left: 65px;
+
   }
 
   .nav-links li {
     font-size: medium;
+  }
+
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    margin-right: -28px;
   }
 
   .image img {
@@ -453,12 +645,11 @@ footer {
     padding: 8px 14px;
   }
 
-  /* Keep contact items in single line */
   .contact {
     gap: 15px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 6px 10px;
+    padding: 0 10px;
   }
 
   .contact p,
@@ -477,6 +668,12 @@ footer {
 
   .section-title {
     font-size: 20px;
+    padding-left: 15px;
+  }
+
+  .content{
+    width: 413px;
+    padding-left: 12px;
   }
 
   .content-text {
@@ -520,7 +717,7 @@ footer {
 
   footer {
     padding: 20px 20px;
-    margin-top: 10px;
+    margin-top: 40px;
   }
 
   .footer-content {
@@ -540,7 +737,6 @@ footer {
   }
 }
 
-/* Small mobile devices (max-width: 320px) */
 @media (max-width: 320px) {
   .name h3 {
     font-size: 1rem;
@@ -563,9 +759,7 @@ footer {
     font-size: 16px;
   }
 
-  /* Extra small contact adjustments */
   .contact {
-    margin: 2px;
     gap: 10px;
   }
 

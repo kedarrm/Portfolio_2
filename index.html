@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kedar's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="MK.png">
+
+  </head>
   <body>
     <div class="nav">
       <div class="name">
@@ -27,6 +29,13 @@
           >
         </li>
       </ul>
+      <button
+        class="theme-toggle"
+        onclick="toggleTheme()"
+        aria-label="Toggle theme"
+      >
+        <i class="fas fa-sun" id="theme-icon"></i>
+      </button>
     </div>
 
     <section class="image-section">
@@ -67,7 +76,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section>
       <div class="section-title">Experience</div>
       <div class="content">
@@ -77,8 +85,8 @@
           <p class="card-date">Aug 2025 - Oct 2025</p>
           <ul class="card-list">
             <li>
-              Developed a web application development using Reactjs, Nextjs,
-              and Tailwind CSS.
+              Developed a web application development using Reactjs, Nextjs, and
+              Tailwind CSS.
             </li>
             <li>
               Contributed to debugging, code reviews, and feature
@@ -93,27 +101,25 @@
       </div>
     </section>
 
-    <!-- Education Section -->
     <section>
       <div class="section-title">Education</div>
       <div class="content">
         <div class="card">
           <h3 class="card-title">B-Tech Computer Science Engineering</h3>
-          <p class="card-subtitle">
-            Nims University - Jaipur, Rajasthan
-          </p>
+          <p class="card-subtitle">Nims University - Jaipur, Rajasthan</p>
           <p class="card-date">Grade - 8.1 CGPA</p>
           <ul class="card-list">
             <li>
-              Developed a Web application as a part of the final year
-              project using Python, Django, and Google Gemini API.
+              Developed a Web application as a part of the final year project
+              using Python, Django, and Google Gemini API.
             </li>
             <li>
-              Developed a full-stack web application using Reactjs, Nextjs,
-              and .
+              Developed a full-stack web application using Reactjs, Nextjs, and
+              .
             </li>
             <li>
-              Collaborated with a team of 3 to design and built a Food Delivery app for college students.
+              Collaborated with a team of 3 to design and built a Food Delivery
+              app for college students.
             </li>
             <li>
               Conducted manual and automated testing to identify and resolve
@@ -191,10 +197,18 @@
       <div class="footer-content">
         <p class="footer-text">© 2025 Mahamure Kedar. All rights reserved.</p>
         <div class="footer-socials">
-          <a href="https://www.linkedin.com/in/kedar-mahamure/" class="social-icon" aria-label="Email">
+          <a
+            href="https://www.linkedin.com/in/kedar-mahamure/"
+            class="social-icon"
+            aria-label="Email"
+          >
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://www.linkedin.com/in/kedar-mahamure/" class="social-icon" aria-label="Messages">
+          <a
+            href="https://www.linkedin.com/in/kedar-mahamure/"
+            class="social-icon"
+            aria-label="Messages"
+          >
             <i class="fas fa-comment"></i>
           </a>
           <a
@@ -204,7 +218,7 @@
           >
             <i class="fab fa-instagram"></i>
           </a>
-           <a
+          <a
             href="https://github.com/kedarrm"
             class="social-icon"
             aria-label="GitHub"
@@ -221,5 +235,34 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Check for saved theme preference or default to dark mode
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      const themeIcon = document.getElementById("theme-icon");
+
+      if (currentTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+      }
+
+      function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById("theme-icon");
+
+        body.classList.toggle("light-mode");
+
+        if (body.classList.contains("light-mode")) {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          localStorage.setItem("theme", "light");
+        } else {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          localStorage.setItem("theme", "dark");
+        }
+      }
+    </script>
   </body>
 </html>
